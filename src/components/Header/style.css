@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding: 0;
+    border: 0;
+}
+
+.container{
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    background-color: rgb(166, 166, 166);
+    height: 80px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+
+.list{
+    padding-left: 240px;
+    padding-top: 30px;
+
+}
+
+.button{
+    border-radius: 20px;
+    padding-left: 220px;
+    padding-top: 35px;
+}
+.styleB{
+    width: 140%;
+    height: 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.styleB:hover{
+
+    background-color: rgb(79, 79, 79);
+    color:#FFFF;
+}
