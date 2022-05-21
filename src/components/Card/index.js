@@ -24,10 +24,10 @@ export default function Card() {
     }
 
     //Url que iminte a imagem 
-    function returnURLImg(url){
+    function returnURLImg(url) {
         const baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
         const newUrl = `${url.slice(34)}`;
-        const returnImg = baseUrl + newUrl.replace("/",".png");
+        const returnImg = baseUrl + newUrl.replace("/", ".png");
         return returnImg;
     }
 
@@ -45,14 +45,15 @@ export default function Card() {
                         <div className='styledCard' key={index}>
                             <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
 
-                            {/* <h1>{item.name}</h1> */}
+                            <h1 className='nameTitulo'>{item.name}</h1>
+                            <div className='containerBottom'>
+                                <div className='bottomCard'>
+                                    <bottom className='adicionarCard'>Adicionar</bottom><br />
+                                </div>
 
-                            <div className='bottomCard'>
-                                <bottom className='adicionarCard'>Adicionar</bottom><br />
-                            </div>
-
-                            <div className='bottomCard'>
-                                <bottom className='detalherCard'>Ver Detalher</bottom>
+                                <div className='bottomCard'>
+                                    <bottom className='detalherCard'>Ver Detalher</bottom>
+                                </div>
                             </div>
                         </div>
                     );
