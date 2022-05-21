@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import './style.css';
 import api from "../../Services/api";
-import apiImg from "../../Services/apiImg";
-import pikachu from './../../img/Pikachu.jpg'
+import { Link } from 'react-router-dom';
 
 
-export default function Card() {
+export default function ListPokemons() {
 
     const [PokemonList, setPokemonList] = useState([]);
 
@@ -15,7 +14,7 @@ export default function Card() {
             // .get("/pokemon?limit=19")
             .get("/pokemon")
             .then((data) => {
-                // console.log(data.data.results);
+                console.log(data.data.results);
                 setPokemonList(data.data.results);
 
             })
@@ -24,6 +23,20 @@ export default function Card() {
             });
     }
 
+    // async function filterloadLocals(name) {
+    //     await api
+    //         // .get("/pokemon?limit=19")
+    //         .get(`/pokemon/${name}`)
+    //         .then((data) => {
+    //             console.log(data.data.results);
+    //             setPokemonList(data.data.results);
+
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }
+    
     //Url que iminte a imagem 
     function returnURLImg(url) {
         const baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
@@ -40,13 +53,17 @@ export default function Card() {
     return (
         <div className='Container'>
             {PokemonList.map((item, index) => {
+
                 return (
+                    // <Card item={item} index={index}/>
                     <div className='ContainerCard' key={index}>
                         <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
                         <h1 >{item.name}</h1>
                         <div className='CardFooter'>
                             <button>Adicionar</button>
-                            <button>Ver Detalhes</button>
+                            <Link to={`/detalhes/${item.name}`}>
+                                <button>Ver Detalhes</button>
+                            </Link>
                         </div>
                     </div>
                 );
@@ -54,3 +71,18 @@ export default function Card() {
         </div>
     )
 }
+// function Card({ item, index }) {
+//     return (
+//         <div className='ContainerCard' key={index}>
+//             <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
+//             <h1 >{item.name}</h1>
+//             <div className='CardFooter'>
+//                 <button>Adicionar</button>
+//                 <Link to={`/detalhes/${item.name}`}>
+//                     <button>Ver Detalhes</button>
+//                 </Link>
+//             </div>
+//         </div>
+//     )
+// }
+

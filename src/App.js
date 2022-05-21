@@ -1,15 +1,8 @@
 import './App.css';
-import Header from './components/Header/index.js';
-import Card from './components/Card/index.js';
+import RoutesAplication from './routes';
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Card />
-
-    </div>
-  );
+  return <RoutesAplication/>
 }
 
 export default App;
