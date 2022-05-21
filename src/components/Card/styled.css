@@ -1,0 +1,53 @@
+.Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 50px;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-items: center; */
+}
+
+.ContainerCard {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 100ms ease-in-out;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ContainerCard:hover {
+    transform: scale(1.05);
+}
+
+.ContainerCard img {
+    width: 100%;
+}
+.ContainerCard h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 10px;
+}
+
+.CardFooter{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.CardFooter button{
+    background: #0066A2;
+    color: white;
+    border-color: #0066A2;
+    border-radius: 10px;
+    height: 60px; 
+    width: 100px; 
+    font: bold 15px arial, sans-serif;
+    cursor: pointer;
+    margin-right: 14px;
+    margin-bottom: 20px;
+    border: 0px;
+}
