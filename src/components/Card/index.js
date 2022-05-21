@@ -12,6 +12,7 @@ export default function Card() {
 
     async function getPokemonList() {
         await api
+            // .get("/pokemon?limit=19")
             .get("/pokemon")
             .then((data) => {
                 // console.log(data.data.results);
@@ -33,32 +34,23 @@ export default function Card() {
 
     useEffect(() => {
         getPokemonList();
-        returnURLImg("https://pokeapi.co/api/v2/pokemon/1000/");
     }, []);
 
 
     return (
-        <div className='containerCard'>
-            <div className='column'>
-                {PokemonList.map((item, index) => {
-                    return (
-                        <div className='styledCard' key={index}>
-                            <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
-
-                            <h1 className='nameTitulo'>{item.name}</h1>
-                            <div className='containerBottom'>
-                                <div className='bottomCard'>
-                                    <bottom className='adicionarCard'>Adicionar</bottom><br />
-                                </div>
-
-                                <div className='bottomCard'>
-                                    <bottom className='detalherCard'>Ver Detalher</bottom>
-                                </div>
-                            </div>
+        <div className='Container'>
+            {PokemonList.map((item, index) => {
+                return (
+                    <div className='ContainerCard' key={index}>
+                        <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
+                        <h1 >{item.name}</h1>
+                        <div className='CardFooter'>
+                            <button>Adicionar</button>
+                            <button>Ver Detalhes</button>
                         </div>
-                    );
-                })}
-            </div>
+                    </div>
+                );
+            })}
         </div>
     )
 }
