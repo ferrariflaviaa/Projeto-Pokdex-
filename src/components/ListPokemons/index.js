@@ -31,7 +31,7 @@ export default function ListPokemons() {
 
     return (
         <>
-            <Header />
+            <Header routeName='home'/>
             <div className='Container'>
                 {PokemonList.map((item, index) => {
                     return (
