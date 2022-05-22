@@ -3,12 +3,16 @@ import './style.css';
 import api from "../../Services/api";
 import Card from '../Card';
 import Header from '../Header';
+import { usePokedex, PokedexContext } from '../../context';
 
 
 export default function ListPokemons() {
 
     const [PokemonList, setPokemonList] = useState([]);
     const [offset, setOffset] = useState(0);
+    // const { listPokedex } = usePokedex(PokedexContext)
+
+    // console.log(listPokedex);
 
     const nextPage = () => {
         if (offset >= 1110) {
@@ -32,7 +36,7 @@ export default function ListPokemons() {
             .get(`/pokemon?offset=${offset}&limit=30`)
             .then((data) => {
                 // console.log(data.data.results);
-                setPokemonList(data.data.results);
+                // setPokemonList(data.data.results);
 
             })
             .catch((error) => {
@@ -50,8 +54,8 @@ export default function ListPokemons() {
         <>
             <Header routeName='home' />
             <div className='ContainerPage'>
-                <button onClick={() => previusPage()}>Página anterior</button>
-                <button onClick={() => nextPage()}>Página seguinte</button>
+                <button onClick={() => previusPage()}>PREVIUS PAGE</button>
+                <button onClick={() => nextPage()}>NEXT PAGE</button>
             </div>
             <div className='Container'>
                 {PokemonList.map((item, index) => {
