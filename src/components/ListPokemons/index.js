@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './style.css';
 import api from "../../Services/api";
 import Card from '../Card';
 import Header from '../Header';
 import { usePokedex, PokedexContext } from '../../context';
 
-
 export default function ListPokemons() {
 
     const [PokemonList, setPokemonList] = useState([]);
     const [offset, setOffset] = useState(0);
-    // const { listPokedex } = usePokedex(PokedexContext)
+    const { pokemons, addPokemon } = usePokedex(PokedexContext);
 
-    // console.log(listPokedex);
+    const capturePokemon = (item) => {
+        addPokemon(item);
+    }
 
     const nextPage = () => {
         if (offset >= 1110) {
             setOffset(0);
-        }else{
+        } else {
             setOffset(offset + 30);
         }
     }
@@ -36,7 +37,7 @@ export default function ListPokemons() {
             .get(`/pokemon?offset=${offset}&limit=30`)
             .then((data) => {
                 // console.log(data.data.results);
-                // setPokemonList(data.data.results);
+                setPokemonList(data.data.results);
 
             })
             .catch((error) => {
@@ -46,9 +47,20 @@ export default function ListPokemons() {
 
     useEffect(() => {
         getPokemonList();
-        console.log(offset)
     }, [offset]);
 
+    useEffect(() => {
+        console.log(pokemons)
+    }, [pokemons]);
+
+    const validPokemonIntoPokedex = (item, index) => {
+        for (let i = 0; i <= pokemons.length - 1; i++) {
+            if (item.name === pokemons[i].name) {
+                return false;
+            }
+        }
+        return <Card item={item} key={index} routeName='home' action={() => capturePokemon(item)} />
+    }
 
     return (
         <>
@@ -59,9 +71,7 @@ export default function ListPokemons() {
             </div>
             <div className='Container'>
                 {PokemonList.map((item, index) => {
-                    return (
-                        <Card item={item} key={index} />
-                    );
+                    return validPokemonIntoPokedex(item, index);
                 })}
             </div>
         </>

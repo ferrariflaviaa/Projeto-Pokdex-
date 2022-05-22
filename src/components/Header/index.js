@@ -14,7 +14,7 @@ export default function Header({ routeName }) {
                 </>
             ) : routeName === 'pokedex' ? (
                 <>
-                    <button className='styleB'>VER MINHA POKEDEX</button>
+                    <Link className='styleB' to='/pokedex/s'>VER MINHA POKEDEX</Link>
                     <h2>LISTA DE POKEMOS</h2>
                     <div className='empty' />
                 </>

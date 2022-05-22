@@ -1,20 +1,24 @@
-import React, {  useSate, createContext, useContext, } from "react";
+import React, {
+    useState,
+    useContext,
+    createContext
+} from 'react';
 
-export const PokedexContext = createContext();
+export const PokedexContext = createContext({});
 
-function PokedexProvider({children}){
+function PokedexProvider({ children }) {
 
-    const [listPokedex, setListPokedex] = useSate([]);
+    const [pokemons, setPokemons] = useState([
+        // {name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/'},
+        // {name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' }
+    ]);
 
-    const addPokemonToPokedex  = (item) => {
-        setListPokedex([...listPokedex, item]);
-    };
+    const addPokemon = (item) => {
+        setPokemons([...pokemons, item])
+    }
 
-    return(
-        <PokedexContext.Provider value={{
-            addPokemonToPokedex,
-            listPokedex,
-        }}>
+    return (
+        <PokedexContext.Provider value={{ pokemons, addPokemon }}>
             {children}
         </PokedexContext.Provider>
     )
@@ -24,5 +28,5 @@ function usePokedex() {
     const context = useContext(PokedexContext);
     return context;
 }
-  
+
 export { PokedexProvider, usePokedex };
