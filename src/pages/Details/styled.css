@@ -1,0 +1,18 @@
+.containerDetalis{
+    display: flex;
+    flex-direction: column;
+
+
+}
+.imgPokemon{
+    width: 20%;
+    height: 30%;
+    padding: 20px 50px;
+    background-color: rgba(104, 195, 195, 0.535);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 20px 70px;
+
+
+
+}

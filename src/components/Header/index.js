@@ -1,4 +1,4 @@
-import './style.css'
+import './styled.css'
 
 export default function Header({ routeName }) {
 
@@ -7,13 +7,9 @@ export default function Header({ routeName }) {
         <div className="container">
             {routeName === "home" ? (
                 <>
-                    {/* <div className='button'> */}
-                        <button className='styleB'>VER MINHA POKEDEX</button>
-                    {/* </div> */}
-                    {/* <div className='list'> */}
-                        <h2>LISTA DE POKEMOS</h2>
-                        <div className='empty'/>
-                    {/* </div> */}
+                    <button className='styleB'>VER MINHA POKEDEX</button>
+                    <h2>LISTA DE POKEMOS</h2>
+                    <div className='empty' />
                 </>
             ) : routeName === 'pokedex' ? (
                 <>
@@ -26,12 +22,10 @@ export default function Header({ routeName }) {
                 </>
             ) : routeName === 'details' ? (
                 <>
-                    <div className='button'>
-                        <button className='styleB'>VER MINHA POKEDEX</button>
-                    </div>
-                    <div className='list'>
-                        <h2>LISTA DE POKEMOS</h2>
-                    </div>
+                    <button className='styleB'>VOLTA</button>
+                    <h2>LISTA DE POKEMOS</h2>
+                    <button className='styleB'>ADICIONAR/REMOVER DA POKEDEX</button>
+                    
                 </>
             ) : (
                 <></>
