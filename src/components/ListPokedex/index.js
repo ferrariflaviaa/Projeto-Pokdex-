@@ -7,15 +7,19 @@ import Card from '../../components/Card';
 
 export default function ListPokedex() {
 
-    const { pokemons, addPokemon } = usePokedex(PokedexContext);
+    const { pokemonsPaged, addPokemon, removePokemon } = usePokedex(PokedexContext);
 
     return (
         <>
             <Header routeName="pokedex" />
-            {pokemons && (
+            <div className='ContainerPage'>
+                <button onClick={() => null}>PREVIUS PAGE</button>
+                <button onClick={() => null}>NEXT PAGE</button>
+            </div>
+            {pokemonsPaged && (
                 <div className='Container'>
-                    {pokemons.map((item, index) => {
-                        return <Card item={item} key={index}/>
+                    {pokemonsPaged.map((item, index) => {
+                        return <Card item={item} key={index} action={()=> removePokemon(item)}/>
                     })}
 
                 </div>

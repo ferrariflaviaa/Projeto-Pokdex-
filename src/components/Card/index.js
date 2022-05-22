@@ -2,7 +2,7 @@ import React from 'react'
 import './styled.css';
 import { Link } from 'react-router-dom';
 
-export default function Card({ action, routeName, item, addPokemon,...rest }) {
+export default function Card({ action, routeName, item,...rest }) {
 
     //Url que iminte a imagem 
     function returnURLImg(url) {
@@ -20,7 +20,7 @@ export default function Card({ action, routeName, item, addPokemon,...rest }) {
                     {routeName === 'home' ? (
                         <button onClick={()=>action(item)}>Adicionar</button>
                         ) : (
-                        <button>Remover</button>
+                        <button onClick={()=>action(item)}>Remover</button>
                     )}
                     <Link to={`/detalhes/${item.name}`}>
                         <button>Ver Detalhes</button>
