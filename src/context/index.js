@@ -8,10 +8,7 @@ export const PokedexContext = createContext({});
 
 function PokedexProvider({ children }) {
 
-    const [pokemons, setPokemons] = useState([
-        // {name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/'},
-        // {name: 'ivysaur', url: 'https://pokeapi.co/api/v2/pokemon/2/' }
-    ]);
+    const [pokemons, setPokemons] = useState([]);
 
     const addPokemon = (item) => {
         setPokemons([...pokemons, item])

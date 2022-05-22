@@ -8,13 +8,13 @@ export default function Header({ routeName }) {
         <div className="container">
             {routeName === "home" ? (
                 <>
-                    <button className='styleB'>VER MINHA POKEDEX</button>
+                    <Link className='styleB' to='/pokedex'>VER MINHA POKEDEX</Link>
                     <h2>LISTA DE POKEMOS</h2>
                     <div className='empty' />
                 </>
             ) : routeName === 'pokedex' ? (
                 <>
-                    <Link className='styleB' to='/pokedex/s'>VER MINHA POKEDEX</Link>
+                    <Link className='styleB' to='/'>VOLTAR</Link>
                     <h2>LISTA DE POKEMOS</h2>
                     <div className='empty' />
                 </>

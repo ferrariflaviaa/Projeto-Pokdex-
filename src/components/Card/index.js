@@ -13,8 +13,7 @@ export default function Card({ action, routeName, item, addPokemon,...rest }) {
     }
 
     return (
-        <div className='Container' {...rest}>
-            <div className='ContainerCard'>
+            <div className='ContainerCard'  {...rest}>
                 <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
                 <h1 >{item.name}</h1>
                 <div className='CardFooter'>
@@ -28,6 +27,5 @@ export default function Card({ action, routeName, item, addPokemon,...rest }) {
                     </Link>
                 </div>
             </div>
-        </div>
     )
 }

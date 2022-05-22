@@ -1,7 +1,6 @@
 import React from 'react'
+import ListPokedex from '../../components/ListPokedex'
 
-export default function index() {
-  return (
-    <div>index</div>
-  )
+export default function Pokedex() {
+  return <ListPokedex/>
 }

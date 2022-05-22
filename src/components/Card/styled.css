@@ -1,13 +1,4 @@
-.Container {
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px;
-    padding: 50px 20px;
-    align-items: center;
-    /* justify-content: center; */
-    /* justify-items: center; */
-}
+
 
 .ContainerCard {
     background: #fff;
