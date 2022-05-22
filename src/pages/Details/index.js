@@ -18,9 +18,7 @@ export default function Detalis() {
       // .get("/pokemon?limit=19")
       .get(`/pokemon/${pokemonId}`)
       .then((data) => {
-        console.log(data.data.sprits);
         setPokemonDetails(data.data);
-
       })
       .catch((error) => {
         console.log(error);
@@ -57,12 +55,7 @@ export default function Detalis() {
           <div>
             <h1>Moves</h1>
             {pokemonDetails.moves.map((item, index) => {
-              return (
-                <>
-                  <h1 key={index}>{index + 1}: {item.move.name} </h1>
-
-                </>
-              )
+              return  <h1 key={index}>{index + 1}: {item.move.name} </h1>
             })}
           </div>
         </>

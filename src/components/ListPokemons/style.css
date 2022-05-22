@@ -7,4 +7,26 @@
     /* justify-content: center; */
     /* justify-items: center; */
 }
+.ContainerPage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    width: 100%;
+    /* height: 10px; */
+}
+.ContainerPage button{
+    height: 60px;
+    margin: 0px 10px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 20px;
+    background-color: #C40014;
+    color: #fff;
+}
 
+.ContainerPage button:hover{
+    background-color: #FF0016;
+    color: #fff;
+}
