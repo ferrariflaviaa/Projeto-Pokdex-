@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './styled.css'
 
 export default function Header({ routeName }) {
@@ -13,19 +14,15 @@ export default function Header({ routeName }) {
                 </>
             ) : routeName === 'pokedex' ? (
                 <>
-                    <div className='button'>
-                        <button className='styleB'>VER MINHA POKEDEX</button>
-                    </div>
-                    <div className='list'>
-                        <h2>LISTA DE POKEMOS</h2>
-                    </div>
+                    <button className='styleB'>VER MINHA POKEDEX</button>
+                    <h2>LISTA DE POKEMOS</h2>
+                    <div className='empty' />
                 </>
             ) : routeName === 'details' ? (
                 <>
-                    <button className='styleB'>VOLTA</button>
+                    <Link className='styleB' to='/' >VOLTAR</Link>
                     <h2>LISTA DE POKEMOS</h2>
                     <button className='styleB'>ADICIONAR/REMOVER DA POKEDEX</button>
-                    
                 </>
             ) : (
                 <></>

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 export default function Card({ item, index }) {
 
-       //Url que iminte a imagem 
-       function returnURLImg(url) {
+    //Url que iminte a imagem 
+    function returnURLImg(url) {
         const baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
         const newUrl = `${url.slice(34)}`;
         const returnImg = baseUrl + newUrl.replace("/", ".png");
@@ -24,7 +24,6 @@ export default function Card({ item, index }) {
                     </Link>
                 </div>
             </div>
-
         </div>
-        )
+    )
 }
