@@ -7,14 +7,14 @@ import Card from '../../components/Card';
 
 export default function ListPokedex() {
 
-    const { pokemonsPaged, addPokemon, removePokemon } = usePokedex(PokedexContext);
+    const { pokemonsPaged, removePokemon, previusPage, nextPage } = usePokedex(PokedexContext);
 
     return (
         <>
             <Header routeName="pokedex" />
             <div className='ContainerPage'>
-                <button onClick={() => null}>PREVIUS PAGE</button>
-                <button onClick={() => null}>NEXT PAGE</button>
+                <button onClick={() => previusPage()}>PREVIUS PAGE</button>
+                <button onClick={() => nextPage()}>NEXT PAGE</button>
             </div>
             {pokemonsPaged && (
                 <div className='Container'>
