@@ -4,20 +4,21 @@ import Header from '../../components/Header/index';
 import './styled.css';
 import api from "../../Services/api";
 
-import Pikachu from '../../img/Pikachu.jpg'
 import { useParams } from "react-router-dom";
+import { PokedexContext, usePokedex } from '../../context';
 
 export default function Detalis() {
 
   const [pokemonDetails, setPokemonDetails] = useState();
   const params = useParams();
   const pokemonId = params.id;
+  const { setPokemonSelected } = usePokedex(PokedexContext);
 
   async function getPokemonDetalis() {
     await api
-      // .get("/pokemon?limit=19")
       .get(`/pokemon/${pokemonId}`)
       .then((data) => {
+        // console.log(data.data);
         setPokemonDetails(data.data);
       })
       .catch((error) => {
@@ -28,6 +29,15 @@ export default function Detalis() {
   useEffect(() => {
     getPokemonDetalis();
   }, []);
+
+  useEffect(() => {
+    if(pokemonDetails){
+      setPokemonSelected({
+        name: pokemonId,
+        url: `https://pokeapi.co/api/v2/pokemon/${pokemonDetails.id}/`,
+      });
+    }
+  }, [pokemonDetails]);
 
   return (
     <div>
@@ -55,7 +65,7 @@ export default function Detalis() {
           <div>
             <h1>Moves</h1>
             {pokemonDetails.moves.map((item, index) => {
-              return  <h1 key={index}>{index + 1}: {item.move.name} </h1>
+              return <h1 key={index}>{index + 1}: {item.move.name} </h1>
             })}
           </div>
         </>

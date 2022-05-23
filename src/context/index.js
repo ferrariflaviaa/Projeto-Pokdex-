@@ -14,6 +14,7 @@ function PokedexProvider({ children }) {
     const [filterStart, setFilterStart] = useState(0);
     const [filterEnd, setFilterEnd] = useState(30);
     const [page, setPage] = useState(1);
+    const [pokemonSelected, setPokemonSelected] = useState({});
 
     useEffect(() => {
         setPokemonsPaged([]);
@@ -47,6 +48,15 @@ function PokedexProvider({ children }) {
         setPokemons([...pokemons, item])
     }
 
+    const addOrRemovePokemon = (item) => {
+        const filter = pokemons.filter(pokemon => pokemon.name === item.name);
+        if (filter.length === 0) {
+            addPokemon(item);
+        } else {
+            removePokemon(item);
+        }
+    }
+
     return (
         <PokedexContext.Provider
             value={{
@@ -55,7 +65,10 @@ function PokedexProvider({ children }) {
                 removePokemon,
                 pokemonsPaged,
                 nextPage,
-                previusPage
+                previusPage,
+                addOrRemovePokemon,
+                setPokemonSelected,
+                pokemonSelected
             }}>
             {children}
         </PokedexContext.Provider>
