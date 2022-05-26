@@ -31,7 +31,7 @@ export default function Detalis() {
   }, []);
 
   useEffect(() => {
-    if(pokemonDetails){
+    if (pokemonDetails) {
       setPokemonSelected({
         name: pokemonId,
         url: `https://pokeapi.co/api/v2/pokemon/${pokemonDetails.id}/`,
@@ -44,12 +44,13 @@ export default function Detalis() {
       <Header routeName='details' />
 
       {pokemonDetails && (
-        <>
+        <div className='ContainerD'>
           <div className='containerDetalis'>
             <img className='imgPokemon' src={pokemonDetails.sprites.front_default} />
             <img className='imgPokemon' src={pokemonDetails.sprites.back_default} />
           </div>
-          <div>
+          <div className='Detalis'>
+            <h1 className='Title'>Powers</h1>
             <h1>HP: {pokemonDetails.stats[0].base_stat}</h1>
             <h1>Atack: {pokemonDetails.stats[1].base_stat}</h1>
             <h1>Defense: {pokemonDetails.stats[2].base_stat}</h1>
@@ -57,18 +58,25 @@ export default function Detalis() {
             <h1>special-defense: {pokemonDetails.stats[4].base_stat}</h1>
             <h1>speed: {pokemonDetails.stats[5].base_stat}</h1>
           </div>
-          {pokemonDetails.types.map((item, index) => {
-            return (
-              <h1 key={index}>type {index + 1}: {item.type.name}</h1>
-            )
-          })}
-          <div>
-            <h1>Moves</h1>
-            {pokemonDetails.moves.map((item, index) => {
-              return <h1 key={index}>{index + 1}: {item.move.name} </h1>
-            })}
+          <div className='TypesMove'>
+            <div className='Types'>
+              <h1 className='Title'>Pokemon type</h1>
+              {pokemonDetails.types.map((item, index) => {
+                return (
+                  <h1 key={index}>{index + 1}: {item.type.name}</h1>
+                )
+              })}
+            </div>
+            <div  className='Types'>
+              <h1 className='Title'>Moves</h1>
+              {pokemonDetails.moves.map((item, index) => {
+                for (let i = 3; i > index; i++) {
+                  return <h1 key={index}>{index + 1}: {item.move.name} </h1>
+                }
+              })}
+            </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   )
