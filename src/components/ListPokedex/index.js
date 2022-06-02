@@ -8,11 +8,10 @@ import api from '../../Services/api';
 
 export default function ListPokedex() {
 
-    const { pokemonsPaged, removePokemon, previusPage, nextPage } = usePokedex(PokedexContext);
+    const { pokemonsPaged, removePokemon, previusPage, nextPage, page } = usePokedex(PokedexContext);
 
     const [firstSelected, setFirstSelected] = useState({ name: '' });
     const [secondSelected, setSecondSelected] = useState({ name: '' });
-    // const [page, setPage] = useState(1);
 
     // const [openModal, setOpenModal] = useState();
 
@@ -95,6 +94,7 @@ export default function ListPokedex() {
         <>
             <Header routeName="pokedex" />
             <div className='ContainerPage'>
+                <h1>{page}</h1>
                 <button onClick={() => previusPage()}>PREVIUS PAGE</button>
                 <button onClick={() => nextPage()}>NEXT PAGE</button>
                 <button onClick={() => validStrongPokemon()}

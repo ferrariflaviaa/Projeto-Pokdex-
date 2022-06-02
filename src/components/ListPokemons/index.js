@@ -70,8 +70,8 @@ export default function ListPokemons() {
             <Header routeName='home' />
             <div className='ContainerPage'>
                 <button onClick={() => previusPage()}>PREVIUS PAGE</button>
-                <button onClick={() => nextPage()}>NEXT PAGE</button>
                 <h1>{page}</h1>
+                <button onClick={() => nextPage()}>NEXT PAGE</button>
             </div>
             <div className='Container'>
                 {PokemonList.map((item, index) => {

@@ -1,8 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PokedexContext, usePokedex } from '../../context';
 import './styled.css'
 
 export default function Header({ routeName }) {
+
+    const navigate = useNavigate();
+
+    const navigateToPokedex = (pokemonSelected) => {
+        addOrRemovePokemon(pokemonSelected);
+        navigate('/pokedex');
+    }
 
     const { pokemonSelected, addOrRemovePokemon } = usePokedex(PokedexContext);
     return (
@@ -23,7 +30,7 @@ export default function Header({ routeName }) {
                 <>
                     <Link className='styleB' to='/' >VOLTAR</Link>
                     <h2>LISTA DE POKEMOS</h2>
-                    <button className='styleB' onClick={()=>addOrRemovePokemon(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button>
+                    <button className='styleB' onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button>
                 </>
             ) : (
                 <></>

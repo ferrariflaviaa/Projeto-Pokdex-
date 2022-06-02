@@ -8,7 +8,6 @@ import React, {
 export const PokedexContext = createContext({});
 
 function PokedexProvider({ children }) {
-
     const [pokemons, setPokemons] = useState([]);
     const [pokemonsPaged, setPokemonsPaged] = useState([]);
     const [filterStart, setFilterStart] = useState(0);
@@ -27,7 +26,6 @@ function PokedexProvider({ children }) {
             setFilterStart(filterStart + 30);
             setFilterEnd(filterEnd + 30);
         }
-
     }
 
     const previusPage = () => {
@@ -68,7 +66,8 @@ function PokedexProvider({ children }) {
                 previusPage,
                 addOrRemovePokemon,
                 setPokemonSelected,
-                pokemonSelected
+                pokemonSelected,
+                page
             }}>
             {children}
         </PokedexContext.Provider>
