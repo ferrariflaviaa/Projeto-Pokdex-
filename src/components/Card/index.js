@@ -2,7 +2,7 @@ import React from 'react'
 import './styled.css';
 import { Link } from 'react-router-dom';
 
-export default function Card({ action, routeName, item,...rest }) {
+export default function Card({ action, routeName, item, ...rest }) {
 
     //Url que iminte a imagem 
     function returnURLImg(url) {
@@ -13,19 +13,22 @@ export default function Card({ action, routeName, item,...rest }) {
     }
 
     return (
-            <div className='ContainerCard'  {...rest}>
+        <div className='ContainerCard'  {...rest} >
+            <Link to={`/detalhes/${item.name}`}>
                 <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
-                <h1 >{item.name}</h1>
-                <div className='CardFooter'>
-                    {routeName === 'home' ? (
-                        <button onClick={()=>action(item)}>Adicionar</button>
-                        ) : (
-                        <button onClick={()=>action(item)}>Remover</button>
-                    )}
-                    <Link to={`/detalhes/${item.name}`}>
-                        <button>Ver Detalhes</button>
-                    </Link>
-                </div>
+            </Link>
+
+            <h1 >{item.name}</h1>
+            <div className='CardFooter'>
+                {routeName === 'home' ? (
+                    <button onClick={() => action(item)}>Adicionar</button>
+                ) : (
+                    <button onClick={() => action(item)}>Remover</button>
+                )}
+                <Link to={`/detalhes/${item.name}`}>
+                    <button>Ver Detalhes</button>
+                </Link>
             </div>
+        </div>
     )
 }
