@@ -12,7 +12,9 @@ export default function ListPokedex() {
 
     const [firstSelected, setFirstSelected] = useState({ name: '' });
     const [secondSelected, setSecondSelected] = useState({ name: '' });
-    const [openModal, setOpenModal] = useState();
+    // const [page, setPage] = useState(1);
+
+    // const [openModal, setOpenModal] = useState();
 
     const getPokemonStats = async (name) => {
         const statsPokemon = await api

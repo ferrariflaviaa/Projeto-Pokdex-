@@ -9,6 +9,7 @@ export default function ListPokemons() {
 
     const [PokemonList, setPokemonList] = useState([]);
     const [offset, setOffset] = useState(0);
+    const [page, setPage] = useState(1);
     const { pokemons, addPokemon } = usePokedex(PokedexContext);
 
     const capturePokemon = (item) => {
@@ -20,14 +21,16 @@ export default function ListPokemons() {
             setOffset(0);
         } else {
             setOffset(offset + 30);
+            setPage(page + 1);
         }
     }
 
     const previusPage = () => {
         if (offset === 0) {
-            setOffset(1110);
+            setOffset(0);
         } else {
             setOffset(offset - 30);
+            setPage(page - 1);
         }
     }
 
@@ -68,6 +71,7 @@ export default function ListPokemons() {
             <div className='ContainerPage'>
                 <button onClick={() => previusPage()}>PREVIUS PAGE</button>
                 <button onClick={() => nextPage()}>NEXT PAGE</button>
+                <h1>{page}</h1>
             </div>
             <div className='Container'>
                 {PokemonList.map((item, index) => {
