@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import './style.css';
+import {PageContainer, ContainerLP, ButtonT} from './style.js';
 import api from "../../Services/api";
 import Card from '../Card';
 import Header from '../Header';
@@ -68,16 +68,16 @@ export default function ListPokemons() {
     return (
         <>
             <Header routeName='home' />
-            <div className='ContainerPage'>
-                <button onClick={() => previusPage()}>PREVIUS PAGE</button>
+            <PageContainer>
+                <ButtonT onClick={() => previusPage()}>PREVIUS PAGE</ButtonT>
                 <h1>{page}</h1>
-                <button onClick={() => nextPage()}>NEXT PAGE</button>
-            </div>
-            <div className='Container'>
+                <ButtonT onClick={() => nextPage()}>NEXT PAGE</ButtonT>
+            </PageContainer>
+            <ContainerLP>
                 {PokemonList.map((item, index) => {
                     return validPokemonIntoPokedex(item, index);
                 })}
-            </div>
+            </ContainerLP>
         </>
 
     )

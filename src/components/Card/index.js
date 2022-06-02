@@ -1,5 +1,5 @@
 import React from 'react'
-import './styled.css';
+import {ContainerCard, Img, CardFooter} from './styled.js';
 import { Link } from 'react-router-dom';
 
 export default function Card({ action, routeName, item, ...rest }) {
@@ -9,17 +9,17 @@ export default function Card({ action, routeName, item, ...rest }) {
         const baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/";
         const newUrl = `${url.slice(34)}`;
         const returnImg = baseUrl + newUrl.replace("/", ".png");
-        return returnImg;
+        return returnImg; 
     }
 
     return (
-        <div className='ContainerCard'  {...rest} >
+        <ContainerCard  {...rest} >
             <Link to={`/detalhes/${item.name}`}>
-                <img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
+                <Img className='imgCard' src={returnURLImg(item.url)} alt='pokemon' />
             </Link>
 
             <h1 >{item.name}</h1>
-            <div className='CardFooter'>
+            <CardFooter>
                 {routeName === 'home' ? (
                     <button onClick={() => action(item)}>Adicionar</button>
                 ) : (
@@ -28,7 +28,7 @@ export default function Card({ action, routeName, item, ...rest }) {
                 <Link to={`/detalhes/${item.name}`}>
                     <button>Ver Detalhes</button>
                 </Link>
-            </div>
-        </div>
+            </CardFooter>
+        </ContainerCard>
     )
 }

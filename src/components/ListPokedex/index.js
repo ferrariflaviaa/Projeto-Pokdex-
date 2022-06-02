@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './styled.css';
+import {ContainerPage, Container, ButtonT} from './styled.js';
 import { usePokedex, PokedexContext } from '../../context';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
@@ -93,23 +93,23 @@ export default function ListPokedex() {
     return (
         <>
             <Header routeName="pokedex" />
-            <div className='ContainerPage'>
+            <ContainerPage> 
                 <h1>{page}</h1>
-                <button onClick={() => previusPage()}>PREVIUS PAGE</button>
-                <button onClick={() => nextPage()}>NEXT PAGE</button>
-                <button onClick={() => validStrongPokemon()}
+                <ButtonT onClick={() => previusPage()}>PREVIUS PAGE</ButtonT>
+                <ButtonT onClick={() => nextPage()}>NEXT PAGE</ButtonT>
+                <ButtonT onClick={() => validStrongPokemon()}
                     style={{
                         backgroundColor: 'blue'
                     }}> ANALYZE POKEMONS
-                </button>
-            </div>
+                </ButtonT>
+            </ContainerPage>
             {pokemonsPaged && (
-                <div className='Container'>
+                <Container>
                     {pokemonsPaged.map((item, index) => {
                         return renderCard(item, index)
                     })}
 
-                </div>
+                </Container>
 
             )}
 

@@ -1,4 +1,7 @@
-.ContainerD{
+import styled from "styled-components";
+
+
+export const ContainerD = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
@@ -10,15 +13,17 @@
     align-items: center;
     /* justify-content: center; */
     /* justify-items: center; */
-    
-}
 
-.containerDetalis{
+`
+
+
+export const ContainerDetalis = styled.div`
     display: flex;
     flex-direction: column;
-}
 
-.imgPokemon{
+`
+
+export const ImgPokemon = styled.img`
     width: 70%;
     /*height: 30%; */
     padding: 20px 50px;
@@ -26,9 +31,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin: 20px 70px;
-}
 
-.Detalis{
+    &hover{
+    -webkit-transform: scale(1.0);
+    transform: scale(1.1);
+}
+`
+
+
+export const DetalisT = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,8 +49,14 @@
     /* width: 500px; */
     /* height: 100%; */
     background-color: bisque;
+
+    &hover{
+    -webkit-transform: scale(1.0);
+    transform: scale(1.1);
 }
-.TypesMove{
+`
+
+export const TypesMove = styled.div`
     height: 20%;
     width: 100%;
     margin: 20px;
@@ -47,31 +64,39 @@
     flex-direction: column;
     justify-content: space-around;
 
+    &hover{
+    -webkit-transform: scale(1.0);
+    transform: scale(1.1);
 }
-.Types{
+    
+`
+
+export const Types = styled.div`
     margin-bottom: 20px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: rgb(144, 144, 200);
     /* padding: 20px; */
-}
+`
 
-.Title{
+
+export const Title = styled.h1`
     text-align: center;
-}
+`
 
-.imgPokemon:hover{
-    -webkit-transform: scale(1.0);
-    transform: scale(1.1);
-}
 
-.Detalis:hover{
-    -webkit-transform: scale(1.0);
-    transform: scale(1.1);
-}
+// .imgPokemon:hover{
+//     -webkit-transform: scale(1.0);
+//     transform: scale(1.1);
+// }
 
-.TypesMove:hover{
-    -webkit-transform: scale(1.0);
-    transform: scale(1.1);
-}
+// .Detalis:hover{
+//     -webkit-transform: scale(1.0);
+//     transform: scale(1.1);
+// }
+
+// .TypesMove:hover{
+//     -webkit-transform: scale(1.0);
+//     transform: scale(1.1);
+// }

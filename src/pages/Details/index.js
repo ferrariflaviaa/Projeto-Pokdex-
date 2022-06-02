@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Header from '../../components/Header/index';
-// import '../../components/Header/styled.css';
-import './styled.css';
+// import '../../components/Header/styled.css'; 
+import { Types, TypesMove, Title, DetalisT, ImgPokemon, ContainerDetalis, ContainerD } from './styled.js';
 import api from "../../Services/api";
 
 import { useParams } from "react-router-dom";
@@ -44,39 +44,39 @@ export default function Detalis() {
       <Header routeName='details' />
 
       {pokemonDetails && (
-        <div className='ContainerD'>
-          <div className='containerDetalis'>
-            <img className='imgPokemon' src={pokemonDetails.sprites.front_default} />
-            <img className='imgPokemon' src={pokemonDetails.sprites.back_default} />
-          </div>
-          <div className='Detalis'>
-            <h1 className='Title'>Powers</h1>
+        <ContainerD>
+          <ContainerDetalis>
+            <ImgPokemon src={pokemonDetails.sprites.front_default} />
+            <ImgPokemon src={pokemonDetails.sprites.back_default} />
+          </ContainerDetalis>
+          <DetalisT>
+            <Title>Powers</Title>
             <h1>HP: {pokemonDetails.stats[0].base_stat}</h1>
             <h1>Atack: {pokemonDetails.stats[1].base_stat}</h1>
             <h1>Defense: {pokemonDetails.stats[2].base_stat}</h1>
             <h1>special-attack: {pokemonDetails.stats[3].base_stat}</h1>
             <h1>special-defense: {pokemonDetails.stats[4].base_stat}</h1>
             <h1>speed: {pokemonDetails.stats[5].base_stat}</h1>
-          </div>
-          <div className='TypesMove'>
-            <div className='Types'>
-              <h1 className='Title'>Pokemon type</h1>
+          </DetalisT>
+          <TypesMove>
+            <Types>
+              <Title>Pokemon type</Title>
               {pokemonDetails.types.map((item, index) => {
                 return (
                   <h1 key={index}>{index + 1}: {item.type.name}</h1>
                 )
               })}
-            </div>
-            <div  className='Types'>
+            </Types>
+            <Types>
               <h1 className='Title'>Moves</h1>
               {pokemonDetails.moves.map((item, index) => {
                 for (let i = 3; i > index; i++) {
                   return <h1 key={index}>{index + 1}: {item.move.name} </h1>
                 }
               })}
-            </div>
-          </div>
-        </div>
+            </Types>
+          </TypesMove>
+        </ContainerD>
       )}
     </div>
   )

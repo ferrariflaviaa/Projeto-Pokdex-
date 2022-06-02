@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { PokedexContext, usePokedex } from '../../context';
-import './styled.css'
+import { PokedexContext, usePokedex} from '../../context';
+import  {Containerr, Empty, StyleB } from'./styled.js'
 
 export default function Header({ routeName }) {
 
@@ -8,34 +8,34 @@ export default function Header({ routeName }) {
 
     const navigateToPokedex = (pokemonSelected) => {
         addOrRemovePokemon(pokemonSelected);
-        navigate('/pokedex');
+        navigate('/pokedex'); 
     }
 
     const { pokemonSelected, addOrRemovePokemon } = usePokedex(PokedexContext);
     return (
-        <div className="container">
+        <Containerr>
             {routeName === "home" ? (
-                <>
-                    <Link className='styleB' to='/pokedex'>VER MINHA POKEDEX</Link>
+                <StyleB>
+                    <Link to='/pokedex'>VER MINHA POKEDEX</Link>
                     <h2>LISTA DE POKEMOS</h2>
-                    <div className='empty' />
-                </>
+                    <Empty />
+                </StyleB>
             ) : routeName === 'pokedex' ? (
-                <>
-                    <Link className='styleB' to='/'>VOLTAR</Link>
+                <StyleB>
+                    <Link to='/'>VOLTAR</Link>
                     <h2>LISTA DE POKEMOS</h2>
-                    <div className='empty' />
-                </>
+                    <Empty/>
+                </StyleB>
             ) : routeName === 'details' ? (
-                <>
-                    <Link className='styleB' to='/' >VOLTAR</Link>
+                <StyleB>
+                    <Link to='/' >VOLTAR</Link>
                     <h2>LISTA DE POKEMOS</h2>
-                    <button className='styleB' onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button>
-                </>
+                    <button onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button>
+                </StyleB>
             ) : (
                 <></>
             )}
-        </div>
+        </Containerr>
     )
 
 }
