@@ -46,8 +46,6 @@ export const DetalisT = styled.div`
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    /* width: 500px; */
-    /* height: 100%; */
     background-color: bisque;
 
     &hover{
@@ -77,26 +75,9 @@ export const Types = styled.div`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: rgb(144, 144, 200);
-    /* padding: 20px; */
 `
 
 
 export const Title = styled.h1`
     text-align: center;
 `
-
-
-// .imgPokemon:hover{
-//     -webkit-transform: scale(1.0);
-//     transform: scale(1.1);
-// }
-
-// .Detalis:hover{
-//     -webkit-transform: scale(1.0);
-//     transform: scale(1.1);
-// }
-
-// .TypesMove:hover{
-//     -webkit-transform: scale(1.0);
-//     transform: scale(1.1);
-// }

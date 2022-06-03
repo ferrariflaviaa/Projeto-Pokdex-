@@ -7,9 +7,6 @@ display: grid;
     gap: 30px;
     padding: 50px;
     align-items: center;
-    /* justify-content: center; */
-    /* justify-items: center; */
-
 `
 export const PageContainer = styled.div`
     display: flex;
@@ -20,22 +17,6 @@ export const PageContainer = styled.div`
     width: 100%;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
-    /* height: 10px; */
-    /* button{
-        min-width: 130px;
-        height: 60px;
-        margin: 0px 10px;
-        padding: 10px;
-        border: 0px;
-        border-radius: 20px;
-        background-color: #C40014;
-        color: #fff;
-        font-weight: bold;
-    }
-    &hover{
-        background-color: #FF0016;
-        color: #fff;
-    } */
 `
 export const ButtonT = styled.button` 
     min-width: 130px;

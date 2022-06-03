@@ -18,7 +18,6 @@ export default function Detalis() {
     await api
       .get(`/pokemon/${pokemonId}`)
       .then((data) => {
-        // console.log(data.data);
         setPokemonDetails(data.data);
       })
       .catch((error) => {

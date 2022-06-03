@@ -6,7 +6,7 @@ export const Container = styled.div`
     gap: 30px;
     align-items: center; 
     font-family: 'Courier New', Courier, monospace;
-    margin-top: 30px;
+    margin: 30px 30px;
 `
 export const ContainerPage = styled.div`
     display: flex;
@@ -16,8 +16,6 @@ export const ContainerPage = styled.div`
     padding-top: 40px;
     width: 100%;
     font-family: 'Courier New', Courier, monospace;
-    /* height: 10px; */
-
 `
 export const ButtonT = styled.button` 
         min-width: 130px;

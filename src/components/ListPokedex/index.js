@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {ContainerPage, Container, ButtonT} from './styled.js';
 import { usePokedex, PokedexContext } from '../../context';
 import Header from '../../components/Header';
-import Card from '../../components/Card';
+import CardPokedex from '../../components/CardPokedex';
 import api from '../../Services/api';
 
 
@@ -12,8 +12,6 @@ export default function ListPokedex() {
 
     const [firstSelected, setFirstSelected] = useState({ name: '' });
     const [secondSelected, setSecondSelected] = useState({ name: '' });
-
-    // const [openModal, setOpenModal] = useState();
 
     const getPokemonStats = async (name) => {
         const statsPokemon = await api
@@ -54,6 +52,12 @@ export default function ListPokedex() {
     }
 
     const selectPokemon = (item) => {
+        if(firstSelected.name === item.name){
+            setFirstSelected({ name: '' });
+        }
+        if(secondSelected.name === item.name){
+            setSecondSelected({ name: '' });
+        }
         if (firstSelected.name === '' && firstSelected !== item) {
             setFirstSelected(item);
             console.log(item.name)
@@ -62,23 +66,17 @@ export default function ListPokedex() {
             console.log("second", item.name)
             setSecondSelected(item);
         }
+
     }
 
-    React.useEffect(() => {
-        if (firstSelected) {
-            // console.log("primeiro: " + firstSelected.name);
-        }
-        if (secondSelected) {
-            // console.log("segundo: " + secondSelected.name);
-        }
 
-    }, [firstSelected, secondSelected]);
+
 
     const renderCard = (item, index) => {
         if (item.name === firstSelected.name
             || item.name === secondSelected.name) {
             return (
-                <Card item={item} key={index} action={() => removePokemon(item)} onClick={() => selectPokemon(item)} style={{
+                <CardPokedex item={item} key={index} action={() => removePokemon(item)} battle={() => selectPokemon(item)} style={{
                     borderColor: 'red',
                     borderWidth: 20,
                     backgroundColor: 'red'
@@ -86,7 +84,7 @@ export default function ListPokedex() {
             )
         } else {
             return (
-                <Card item={item} key={index} action={() => removePokemon(item)} onClick={() => selectPokemon(item)} />
+                <CardPokedex item={item} key={index} action={() => removePokemon(item)} battle={() => selectPokemon(item)} />
             )
         }
     }

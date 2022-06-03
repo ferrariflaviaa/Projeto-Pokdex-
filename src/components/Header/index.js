@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { PokedexContext, usePokedex } from '../../context';
-import { Containerr, Empty, StyleB, StyleList } from './styled.js'
+import { Containerr, Empty, StyleB, StyleList, LinkTo } from './styled.js'
 
 export default function Header({ routeName }) {
 
@@ -16,48 +16,36 @@ export default function Header({ routeName }) {
         <Containerr>
             {routeName === "home" ? (
                 <>
+                    <Empty />
                     <StyleList>
-                        {/* <Link to='/pokedex'>VER MINHA POKEDEX</Link> */}
-                        <h2>LISTA DE POKEMOS</h2>
-                        <Empty />
+                        <h2>POKEMON LIST</h2>
                     </StyleList>
                     <StyleB>
-                        <Link to='/pokedex'>VER MINHA POKEDEX</Link>
-                        {/* <h2>LISTA DE POKEMOS</h2> */}
-                        <Empty />
+                        <LinkTo to='/pokedex'>SEE MY POKEDEX</LinkTo>
                     </StyleB>
                 </>
             ) : routeName === 'pokedex' ? (
                 <>
                     <StyleB>
-                        <Link to='/'>VOLTAR</Link>
-                        {/* <h2>Seus POKEMOS</h2> */}
-                        <Empty />
-
+                        <LinkTo to='/'>COME BACK</LinkTo>
                     </StyleB>
                     <StyleList>
-                        {/* <Link to='/'>VOLTAR</Link> */}
-                        <h2>LISTA DE POKEMOS</h2>
-                        <Empty />
+                        <h2>MY POKEMONS</h2>
                     </StyleList>
+                    <Empty />
                 </>
             ) : routeName === 'details' ? (
                 <>
                     <StyleB>
-                        <Link to='/'>VOLTAR</Link>
-                        {/* <h2>LISTA DE POKEMOS</h2> */}
-                        {/* <button onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button> */}
+                        <LinkTo to='/'>COME BACK</LinkTo>
                     </StyleB>
                     <StyleList>
-                        {/* <Link to='/'>VOLTAR</Link> */}
-                        <h2>LISTA DE POKEMOS</h2>
-                        {/* <button onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</button> */}
+                        <h2>POKEMON DETAILS</h2>
                     </StyleList>
                     <StyleB>
-                        {/* <Link to='/'>VOLTAR</Link> */}
-                        {/* <h2>LISTA DE POKEMOS</h2> */}
-                        <a onClick={() => navigateToPokedex(pokemonSelected)}>ADICIONAR/REMOVER DA POKEDEX</a>
-                    </StyleB></>
+                        <a onClick={() => navigateToPokedex(pokemonSelected)}>ADD/REMOVE FROM POKEDEX</a>
+                    </StyleB>
+                </>
             ) : (
                 <></>
             )}

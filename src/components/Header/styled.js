@@ -1,5 +1,9 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
+export const LinkTo = styled(Link) `
+    text-decoration: none;
+`
 
 export const Containerr = styled.div `
     display: flex;
@@ -11,27 +15,16 @@ export const Containerr = styled.div `
     width: 100%;
 `
 
-
-// export const List = styled.link`
-//     padding-left: 240px;
-//     padding-top: 30px;
-// `
-
-// .button{
-//     border-radius: 20px;
-//     /* padding-left: 220px; */
-//     padding-top: 35px;
-// }
 export const Empty = styled.div`
-    width: 20%;
+    width: 15%;
 `
 export const  StyleB = styled.div `
     background-color: rgb(255, 255, 255);
-    width: 20%;
+    width: 15%;
     min-width: 160px;
-    border-radius: 30px;
     cursor: pointer;
     border: 0px;
+    border-radius: 30px;
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -43,6 +36,7 @@ export const  StyleB = styled.div `
     a{
         display: flex;
         align-items: center;
+        justify-items: center;
         font-size: 1rem;
         text-align: center;
 
@@ -57,7 +51,5 @@ export const  StyleB = styled.div `
 export const StyleList = styled.h1`
     text-align: center;
     font-size: 1rem;
-    /* left: 100px; */
-
 
 `

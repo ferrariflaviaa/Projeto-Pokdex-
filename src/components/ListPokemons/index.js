@@ -36,10 +36,8 @@ export default function ListPokemons() {
 
     async function getPokemonList() {
         await api
-            // .get("/pokemon?limit=19")
             .get(`/pokemon?offset=${offset}&limit=30`)
             .then((data) => {
-                // console.log(data.data.results);
                 setPokemonList(data.data.results);
 
             })

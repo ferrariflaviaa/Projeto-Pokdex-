@@ -47,18 +47,3 @@ export const CardFooter = styled.div `
     border: 0px;
 }
 `
-
-
-// .CardFooter button{
-//     background: #0066A2;
-//     color: white;
-//     border - color: #0066A2;
-//     border - radius: 10px;
-//     height: 60px;
-//     width: 100px;
-//     font: bold 15px arial, sans - serif;
-//     cursor: pointer;
-//     margin - right: 14px;
-//     margin - bottom: 20px;
-//     border: 0px;
-// }
