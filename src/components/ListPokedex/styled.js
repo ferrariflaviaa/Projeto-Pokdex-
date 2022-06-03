@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-/* .Container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 90px;
-    padding-left: 90px;
-    padding-right: 90px;
-    align-items: center;
-    /* justify-content: center; */
-    /* justify-items: center; 
-} */
-
 export const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -41,6 +29,7 @@ export const ButtonT = styled.button`
         background-color: #C40014;
         color: #fff;
         font-weight: bold;
+        cursor: pointer;
     &hover{
         background-color: #FF0016;
         color: #fff;

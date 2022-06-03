@@ -6,7 +6,8 @@ export const Containerr = styled.div `
     align-items: center;
     justify-content: space-evenly; 
     background-color: rgb(166, 166, 166);
-    padding: 40px;
+    padding: 40px; 
+    font-family: 'Courier New', Courier, monospace;
     width: 100%;
 `
 
@@ -25,9 +26,9 @@ export const Empty = styled.div`
     width: 20%;
 `
 export const  StyleB = styled.div `
-background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     width: 20%;
-    /* height: 30px; */
+    min-width: 160px;
     border-radius: 30px;
     cursor: pointer;
     border: 0px;
@@ -35,17 +36,28 @@ background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: black;
     border: 2px solid black;
 
-    &hover{
-        background-color: rgb(79, 79, 79);
-        color:#FFFF;
-    }
+    a{
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        text-align: center;
 
-    button{
-    border-radius: 20px;
-    /* padding-left: 220px; */
-    padding-top: 35px;
-}
+        &hover{
+            background-color: #F50014;
+            color:#ffff;
+        }
+    } 
+
+
+`
+export const StyleList = styled.h1`
+    text-align: center;
+    font-size: 1rem;
+    /* left: 100px; */
+
+
 `

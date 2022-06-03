@@ -19,6 +19,7 @@ export const PageContainer = styled.div`
     padding-top: 40px;
     width: 100%;
     font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
     /* height: 10px; */
     /* button{
         min-width: 130px;
@@ -46,6 +47,7 @@ export const ButtonT = styled.button`
         background-color: #C40014;
         color: #fff;
         font-weight: bold;
+        cursor: pointer;
     &hover{
         background-color: #FF0016;
         color: #fff;
