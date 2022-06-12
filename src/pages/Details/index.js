@@ -67,7 +67,7 @@ export default function Detalis() {
               })}
             </Types>
             <Types>
-              <h1 className='Title'>Moves</h1>
+              <h1>Moves</h1>
               {pokemonDetails.moves.map((item, index) => {
                 for (let i = 3; i > index; i++) {
                   return <h1 key={index}>{index + 1}: {item.move.name} </h1>

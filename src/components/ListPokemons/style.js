@@ -19,9 +19,9 @@ export const PageContainer = styled.div`
     cursor: pointer;
 `
 export const ButtonT = styled.button` 
-    min-width: 130px;
-        height: 60px;
-        margin: 0px 10px;
+    min-width: 50px;
+        height: 50px;
+        margin: 0px 5px;
         padding: 10px;
         border: 0px;
         border-radius: 20px;
@@ -33,8 +33,16 @@ export const ButtonT = styled.button`
         background-color: #FF0016;
         color: #fff;
     }
-
-
 `
+export const ContePages = styled.div`
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    margin: 20px 10px;
+    overflow: scroll;
+    align-self: center;
+    padding: 10;
+
+` 
 
 

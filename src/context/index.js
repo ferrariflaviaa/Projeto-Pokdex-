@@ -21,7 +21,7 @@ function PokedexProvider({ children }) {
     }, [pokemons, page])
 
     const nextPage = () => {
-        if (page !== (Math.ceil(pokemons.length / 30))) {
+        if (page !== (Math.ceil(pokemons.length / 30)) && pokemons.length >  30) {
             setPage(page + 1);
             setFilterStart(filterStart + 30);
             setFilterEnd(filterEnd + 30);

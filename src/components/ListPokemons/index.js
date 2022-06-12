@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import {PageContainer, ContainerLP, ButtonT} from './style.js';
+import { PageContainer, ContainerLP, ButtonT, ContePages } from './style.js';
 import api from "../../Services/api";
 import Card from '../Card';
 import Header from '../Header';
@@ -11,35 +11,37 @@ export default function ListPokemons() {
     const [offset, setOffset] = useState(0);
     const [page, setPage] = useState(1);
     const { pokemons, addPokemon } = usePokedex(PokedexContext);
+    const [totalPokemons, setTotalPokemons] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
 
     const capturePokemon = (item) => {
         addPokemon(item);
     }
 
-    const nextPage = () => {
-        if (offset >= 1110) {
-            setOffset(0);
-        } else {
-            setOffset(offset + 30);
-            setPage(page + 1);
+    const nextPage = (valor) => {
+        if (valor * 30 > offset) {
+            setOffset(valor * 30);
+            setPage(valor + 1);
+        }
+        else if (page > 0 && valor * 30 !== offset) {
+            setOffset(valor * 30);
+            setPage(valor + 1);
         }
     }
 
-    const previusPage = () => {
-        if (offset === 0) {
-            setOffset(0);
-        } else {
-            setOffset(offset - 30);
-            setPage(page - 1);
-        }
-    }
+
+    useEffect(() => {
+        console.log("ofsset:" + offset)
+        console.log("page:" + page)
+    }, [page]);
+
 
     async function getPokemonList() {
         await api
             .get(`/pokemon?offset=${offset}&limit=30`)
             .then((data) => {
                 setPokemonList(data.data.results);
-
+                setTotalPokemons(data.data.count);
             })
             .catch((error) => {
                 console.log(error);
@@ -54,6 +56,12 @@ export default function ListPokemons() {
         console.log(pokemons)
     }, [pokemons]);
 
+    useEffect(() => {
+        if (totalPokemons) {
+            setTotalPages(Math.ceil(totalPokemons / 30));
+        }
+    }, [totalPokemons]);
+
     const validPokemonIntoPokedex = (item, index) => {
         for (let i = 0; i <= pokemons.length - 1; i++) {
             if (item.name === pokemons[i].name) {
@@ -63,13 +71,20 @@ export default function ListPokemons() {
         return <Card item={item} key={index} routeName='home' action={() => capturePokemon(item)} />
     }
 
+
+
     return (
         <>
             <Header routeName='home' />
+            <ContePages>
+                {totalPages && (
+                    Array.from({ length: totalPages }).map((_, index) => (
+                        <ButtonT key={index} onClick={() => nextPage(index)} >{index + 1}</ButtonT>
+                    ))
+                )}
+            </ContePages>
             <PageContainer>
-                <ButtonT onClick={() => previusPage()}>PREVIUS PAGE</ButtonT>
                 <h1>{page}</h1>
-                <ButtonT onClick={() => nextPage()}>NEXT PAGE</ButtonT>
             </PageContainer>
             <ContainerLP>
                 {PokemonList.map((item, index) => {
